@@ -1,0 +1,11 @@
+.container{
+	width: 50%;
+	height:45vh;
+	
+	background-image: linear-gradient(to right,red,purple,orange);
+	background-size: cover;
+	color: white;
+	border: 1px solid black;
+	border-radius: 20px;
+}
+

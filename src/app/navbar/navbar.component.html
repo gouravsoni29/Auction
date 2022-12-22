@@ -10,38 +10,38 @@
             <a class="nav-link active" aria-current="page" href="#" routerLink="/home">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a *ngIf="seller1 && isLoggedIn" class="nav-link"  routerLink="/customreg">Customer Registration</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Sellers
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#" routerLink="/sellerreg">Register</a></li>
-              <li><a class="dropdown-item" href="#" routerLink="/productview">View the product</a></li>
-              <!-- <li><hr class="dropdown-divider"></li> -->
-              <li><a class="dropdown-item" href="#">View All Sellers</a></li>
-              <li><a class="dropdown-item" href="#">Delete a product</a></li>
-              <li><a class="dropdown-item" href="#">Fetch All</a></li>
-              <li><a class="dropdown-item" href="#">Delete existing sellers</a></li>
+          <li class="nav-item">
+            <a *ngIf="seller1 && isLoggedIn" class="nav-link" routerLink="/customerlist">Customer List</a>
+          </li>
+          <li class="nav-item">
+            <a 
+            *ngIf="seller1" class="nav-link"  routerLink="/productlist">ProductList</a>
+          </li>
+          <li class="nav-item">
+            <a 
+            *ngIf="seller1" class="nav-link" routerLink="/seller-reg">Seller Register</a>
+          </li>
+          <li class="nav-item">
+            <a 
+            *ngIf="seller1" class="nav-link" routerLink="/sellerlist">Seller List</a>
+          </li>
+          <li class="nav-item">
+            <a (click)="logout()"
+            *ngIf="isLoggedIn" class="nav-link" href="#">Logout</a>
+          </li>
 
+          <li class="nav-item">
+            <a *ngIf="!isLoggedIn" class="nav-link" href="#" routerLink="/login">Login</a>
+          </li>
 
-            </ul>
+          <li class="nav-item">
+            <a *ngIf="!isLoggedIn" class="nav-link" href="#" routerLink="/signup">SignUp</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Customers
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Register yourself</a></li>
-              <li><a class="dropdown-item" href="#">View youself</a></li>
-              <!-- <li><hr class="dropdown-divider"></li> -->
-              <li><a class="dropdown-item" href="#">Fetch all registered Customer</a></li>
-            </ul>
-          </li>
-          
         </ul>
-    
+        
+      
       </div>
     </div>
   </nav>

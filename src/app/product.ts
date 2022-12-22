@@ -1,7 +1,10 @@
 export class Product{
     id?:number;
-    name?:string;
-    specification?:string; 
-    cat?:string   
+    productName?:string;
+    productDesc?:string;
+    price?:number;
+    category?:string;
+    quantity?:number;
+
 
 }

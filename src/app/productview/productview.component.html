@@ -1,28 +1,42 @@
-<div class="container mt-3" >
-    <h1 class="text-center">Products Available</h1>
-    <table class="table">
+<div class="container">
+    <h3 style="margin-bottom:25px; margin-top:15px">Product List</h3>
+    <table class="table table-stripped">
         <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Specification</th>
-            <th scope="col">Category</th>
-            <th scope="col">Add</th>
-            <th scope="col">Delete</th>
-          </tr>
+            <tr>
+                <th>Seller ID</th>
+                <th>Seller Name</th>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Description</th>
+                <th>Start Amount</th>
+                <th>Price</th>
+                <th>Bidding Date</th>
+                <th>Category</th>
+                <th>Actions</th>
+            </tr>
         </thead>
-        <tbody class="table-group-divider">
-          <tr *ngFor="let item of product">
-            <th scope="row">{{item.id}}</th>
-            <td>{{item.name}}</td>
-            <td>{{item.specification}}</td>
-            <td>{{item.cat}}</td>
-            <td><button (click)="addProduct()"   class="btn btn-success">ADD</button></td>
-        <td><button (click)="deleteProduct(item.id)"   class="btn btn-danger">Delete</button></td>
-          </tr>
-          
+        <tbody *ngFor = "let seller of sellers">
+            <tr  *ngIf=" seller.productID">
+                
+                <td>{{seller.sellerID}}</td>
+                <td>{{seller.sellerName}}</td>
+                <td>{{seller.productID}}</td>
+                <td>{{seller.productName}}</td>
+                <td>{{seller.productDescription}}</td>
+                <td>{{seller.productStartamt}}</td>
+                <td>{{seller.productPrice}}</td>
+                <td>{{seller.productBiddingdate}}</td>
+                <td>{{seller.productCategory}}</td>
+                <td>
+                    <button (click)=" productDeletion(seller.sellerID)" class="btn btn-danger">Delete</button>
+                </td>
+                <td>
+                    <button (click)=" viewProduct(seller.sellerID)" class="btn btn-info">View </button>
+                </td>
+                <td>
+                    <button (click)=" viewProduct(seller.sellerID)" class="btn btn-warning">Bid </button>
+                </td>
+            </tr>
         </tbody>
-      </table>
-
-
-</div>
+    </table>
+    </div>

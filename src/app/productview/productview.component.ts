@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { AppModule } from '../app.module';
-import { Product } from '../product';
-import { ProductService } from '../product.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Seller } from '../seller';
+import { SellerService } from '../seller.service';
 @Component({
   selector: 'app-productview',
   templateUrl: './productview.component.html',
@@ -10,40 +10,29 @@ import { ProductService } from '../product.service';
 })
 export class ProductviewComponent implements OnInit {
 
-  product?:Product[];
-  constructor(private pservice:ProductService,private router:Router) { }
+  sellers!: Seller[];
+  sellerID!: number;
+  seller: Seller = new Seller();
+  constructor(private sellerService: SellerService,private router: ActivatedRoute, private routes: Router) { }
 
   ngOnInit(): void {
+    this.getSeller();
 
-    this.product=[{
-      id:1,
-      name:"Iphone",
-      cat:"Electronics",
-      specification:"256Gb"
-    },
-    {
-      id:2,
-      name:"Redmi",
-      cat:"Electronics",
-      specification:"64Gb,8gb ram"
-    },
-    {
-      id:3,
-      name:"Activa",
-      cat:"Vehicle",
-      specification:"125cc"
-    }
-  ];
   }
-
+  private getSeller(){
+    this.sellerService.getSellerList().subscribe(data => {
+      this.sellers=data;
+    })
+  }
   
-  addProduct(){
-    this.router.navigate(['add-new']);
-  }
-  deleteProduct(id?:number){
-    alert("Do ypou want to delete this product")
-    
-
-  }
-
+ productDeletion(sellerID:number){
+  this.sellerService.deleteProduct(sellerID,this.seller).subscribe(data=>{
+    console.log(data);
+    this.getSeller()
+  })
+ }
+ viewProduct(sellerID:number){
+  this.routes.navigate(['view-product',sellerID]);
 }
+}
+

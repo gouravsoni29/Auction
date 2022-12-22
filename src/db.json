@@ -1,0 +1,23 @@
+{
+    "product":[
+    {
+        "id":1,
+        "name":"Iphone",
+        "cat":"Electronics",
+        "specification":"256Gb"
+      },
+      {
+       " id":2,
+        "name":"Redmi",
+       " cat":"Electronics",
+        "specification":"64Gb,8gb ram"
+      },
+      {
+        "id":3,
+        "name":"Activa",
+        "cat":"Vehicle",
+        "specification":"125cc"
+      }
+    ]
+
+}

@@ -1,0 +1,43 @@
+<div class="container mt-3">
+    
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+           <h1 class="text-center">Customer Registration</h1>
+        <form (ngSubmit)="formSubmit()">
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="email" name="email" [(ngModel)]="user.email" aria-describedby="emailHelp">
+            </div>
+    
+            <div class="mb-3">
+                <label for="first" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="first" name="firstname" [(ngModel)]="user.firstname"  aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="last" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="last" name="lastname" [(ngModel)]="user.lastname" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username" [(ngModel)]="user.username" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" [(ngModel)]="user.password" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="p1" class="form-label">Phone</label>
+                <input type="number" class="form-control" id="p1" name="phone" [(ngModel)]="user.phone" aria-describedby="emailHelp">
+              </div>
+            
+            
+            <button type="submit" class="btn btn-primary">Register</button>
+          </form>
+        </div>
+    </div>
+    
+    </div>
+    
+    
+    
+    
