@@ -34,5 +34,8 @@ export class ProductviewComponent implements OnInit {
  viewProduct(sellerID:number){
   this.routes.navigate(['view-product',sellerID]);
 }
+bid(sellerID:number){
+  this.routes.navigate(['']);
+}
 }
 
